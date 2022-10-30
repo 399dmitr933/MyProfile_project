@@ -5,9 +5,9 @@ SEPARATOR = '------------------------------------------'
 # user profile
 input_name = ''
 input_age = 0
-phone = ''
-e_mail = ''
-info = ''
+input_phone = ''
+input_e_mail = ''
+input_info = ''
 
 
 print('Приложение MyProfile')
@@ -47,14 +47,13 @@ while True:
                         break
                     print('Возраст должен быть положительным')
 
-                input_phone = input('Введите номер телефона (+7ХХХХХХХХХХ): ')
-                phone = ''
-                for i_char in input_phone:
+                check_phone = input('Введите номер телефона (+7ХХХХХХХХХХ): ')
+                for i_char in check_phone:
                     if i_char == '+' or ('0' <= i_char <= '9'):
-                        phone += i_char
+                        input_phone += i_char
 
-                e_mail = input('Введите адрес электронной почты: ')
-                info = input('Введите дополнительную информацию:\n')
+                input_e_mail = input('Введите адрес электронной почты: ')
+                input_info = input('Введите дополнительную информацию:\n')
 
             elif option2 == 2:
                 # input social links
@@ -87,12 +86,12 @@ while True:
                     years_name = 'лет'
 
                 print('Возраст:', input_age, years_name)
-                print('Телефон:', phone)
-                print('E-mail: ', e_mail)
-                if info:
+                print('Телефон:', input_phone)
+                print('E-mail: ', input_e_mail)
+                if input_info:
                     print('')
                     print('Дополнительная информация:')
-                    print(info)
+                    print(input_info)
 
             elif option2 == 2:
                 # print full information
@@ -107,12 +106,12 @@ while True:
                 else:
                     years = 'лет'
                 print('Возраст:', input_age, years)
-                print('Телефон:', phone)
-                print('E-mail: ', e_mail)
-                if info:
+                print('Телефон:', input_phone)
+                print('E-mail: ', input_e_mail)
+                if input_info:
                     print('')
                     print('Дополнительная информация:')
-                    print(info)
+                    print(input_info)
 
                 # print social links
             else:
