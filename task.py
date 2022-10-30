@@ -8,10 +8,7 @@ input_age = 0
 phone = ''
 e_mail = ''
 info = ''
-# social links
-soc_vk = ''
-soc_tele = ''
-soc_tik = ''
+
 
 print('Приложение MyProfile')
 print('Сохраняй информацию о себе и выводи ее в разных форматах')
@@ -61,9 +58,7 @@ while True:
 
             elif option2 == 2:
                 # input social links
-                soc_vk = input('Введите адрес профиля Вконтакте: ')
-                soc_tele = input('Введите логин Telegram: ')
-                soc_tik = input('Введите логин Tiktok: ')
+                break
             else:
                 print('Введите корректный пункт меню')
     elif option == 2:
@@ -120,11 +115,6 @@ while True:
                     print(info)
 
                 # print social links
-                print('')
-                print('Социальные сети и мессенджеры')
-                print('Вконтакте:', soc_vk)
-                print('Telegram: ', soc_tele)
-                print('Tiktok:   ', soc_tik)
             else:
                 print('Введите корректный пункт меню')
     else:
