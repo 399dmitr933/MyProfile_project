@@ -3,15 +3,15 @@
 SEPARATOR = '------------------------------------------'
 
 # user profile
-n = ''
-a = 0
-ph = ''
-e = ''
-i = ''
+input_name = ''
+input_age = 0
+phone = ''
+e_mail = ''
+info = ''
 # social links
-v = ''
-t = ''
-tk = ''
+soc_vk = ''
+soc_tele = ''
+soc_tik = ''
 
 print('Приложение MyProfile')
 print('Сохраняй информацию о себе и выводи ее в разных форматах')
@@ -42,28 +42,28 @@ while True:
                 break
             if option2 == 1:
                 # input general info
-                n = input('Введите имя: ')
+                input_name = input('Введите имя: ')
                 while 1:
                     # validate user age
-                    a = int(input('Введите возраст: '))
-                    if a > 0:
+                    input_age = int(input('Введите возраст: '))
+                    if input_age > 0:
                         break
                     print('Возраст должен быть положительным')
 
-                uph = input('Введите номер телефона (+7ХХХХХХХХХХ): ')
-                ph = ''
-                for ch in uph:
-                    if ch == '+' or ('0' <= ch <= '9'):
-                        ph += ch
+                input_phone = input('Введите номер телефона (+7ХХХХХХХХХХ): ')
+                phone = ''
+                for i_char in input_phone:
+                    if i_char == '+' or ('0' <= i_char <= '9'):
+                        phone += i_char
 
-                e = input('Введите адрес электронной почты: ')
-                i = input('Введите дополнительную информацию:\n')
+                e_mail = input('Введите адрес электронной почты: ')
+                info = input('Введите дополнительную информацию:\n')
 
             elif option2 == 2:
                 # input social links
-                v = input('Введите адрес профиля Вконтакте: ')
-                t = input('Введите логин Telegram: ')
-                tk = input('Введите логин Tiktok: ')
+                soc_vk = input('Введите адрес профиля Вконтакте: ')
+                soc_tele = input('Введите логин Telegram: ')
+                soc_tik = input('Введите логин Tiktok: ')
             else:
                 print('Введите корректный пункт меню')
     elif option == 2:
@@ -81,50 +81,50 @@ while True:
             if option2 == 1:
                 # print general information
                 print(SEPARATOR)
-                print('Имя:    ', n)
-                if 11 <= a % 100 <= 19:
+                print('Имя:    ', input_name)
+                if 11 <= input_age % 100 <= 19:
                     years_name = 'лет'
-                elif a % 10 == 1:
+                elif input_age % 10 == 1:
                     years_name = 'год'
-                elif 2 <= a % 10 <= 4:
+                elif 2 <= input_age % 10 <= 4:
                     years_name = 'года'
                 else:
                     years_name = 'лет'
 
-                print('Возраст:', a, years_name)
-                print('Телефон:', ph)
-                print('E-mail: ', e)
-                if i:
+                print('Возраст:', input_age, years_name)
+                print('Телефон:', phone)
+                print('E-mail: ', e_mail)
+                if info:
                     print('')
                     print('Дополнительная информация:')
-                    print(i)
+                    print(info)
 
             elif option2 == 2:
                 # print full information
                 print(SEPARATOR)
-                print('Имя:    ', n)
-                if 11 <= a % 100 <= 19:
+                print('Имя:    ', input_name)
+                if 11 <= input_age % 100 <= 19:
                     years = 'лет'
-                elif a % 10 == 1:
+                elif input_age % 10 == 1:
                     years = 'год'
-                elif 2 <= a % 10 <= 4:
+                elif 2 <= input_age % 10 <= 4:
                     years = 'года'
                 else:
                     years = 'лет'
-                print('Возраст:', a, years)
-                print('Телефон:', ph)
-                print('E-mail: ', e)
-                if i:
+                print('Возраст:', input_age, years)
+                print('Телефон:', phone)
+                print('E-mail: ', e_mail)
+                if info:
                     print('')
                     print('Дополнительная информация:')
-                    print(i)
+                    print(info)
 
                 # print social links
                 print('')
                 print('Социальные сети и мессенджеры')
-                print('Вконтакте:', v)
-                print('Telegram: ', t)
-                print('Tiktok:   ', tk)
+                print('Вконтакте:', soc_vk)
+                print('Telegram: ', soc_tele)
+                print('Tiktok:   ', soc_tik)
             else:
                 print('Введите корректный пункт меню')
     else:
