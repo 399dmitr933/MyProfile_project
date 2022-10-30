@@ -2,13 +2,15 @@
 
 SEPARATOR = '------------------------------------------'
 
-# user profile
+# user profile base
 input_name = ''
 input_age = 0
 input_phone = ''
 input_e_mail = ''
 input_info = ''
-
+# user profile business
+input_orgnip = 0
+input_inn = 0
 
 print('Приложение MyProfile')
 print('Сохраняй информацию о себе и выводи ее в разных форматах')
@@ -30,8 +32,8 @@ while True:
         while True:
             print(SEPARATOR)
             print('ВВЕСТИ ИЛИ ОБНОВИТЬ ИНФОРМАЦИЮ')
-            print('1 - Общая информация')
-            print('2 - Социальные сети и мессенджеры')
+            print('1 - Личная информация')
+            print('2 - Информация о предпринимателе')
             print('0 - Назад')
 
             option2 = int(input('Введите номер пункта меню: '))
@@ -56,7 +58,14 @@ while True:
                 input_info = input('Введите дополнительную информацию:\n')
 
             elif option2 == 2:
-                # input social links
+                # input business info
+                while True:
+                    input_orgnip = input('Введите ОРНИП:')
+                    if len(input_orgnip) == 15:
+                        break
+                    else:
+                        print('Ошибка! проверьте, что поле ОГРНИП содержит 15 цифр')
+                input_inn = int(input('Введите ИНН:'))
                 break
             else:
                 print('Введите корректный пункт меню')
@@ -65,7 +74,7 @@ while True:
         while True:
             print(SEPARATOR)
             print('ВЫВЕСТИ ИНФОРМАЦИЮ')
-            print('1 - Общая информация')
+            print('1 - Личная информация')
             print('2 - Вся информация')
             print('0 - Назад')
 
@@ -113,7 +122,8 @@ while True:
                     print('Дополнительная информация:')
                     print(input_info)
 
-                # print social links
+                # print business info
+                # !!!!!
             else:
                 print('Введите корректный пункт меню')
     else:
