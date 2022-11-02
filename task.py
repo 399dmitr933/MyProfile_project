@@ -15,6 +15,10 @@ input_payment_account = 0
 input_bank_name = ''
 input_bik = 0
 input_correspondent_account = 0
+input_address = ''
+input_postcode = ''
+clear_postcode = ''
+test_num_postcode = '1234567890'
 
 print('Приложение MyProfile')
 print('Сохраняй информацию о себе и выводи ее в разных форматах')
@@ -59,10 +63,11 @@ while True:
                         input_phone += i_char
 
                 input_e_mail = input('Введите адрес электронной почты: ')
-
-
-
-
+                input_postcode = input('Введите почтовый индекс: ')
+                input_address = input('Введите почтовый адрес (без индекса): ')
+                for i_char in input_postcode:
+                    if i_char in test_num_postcode:
+                        clear_postcode += i_char
                 input_info = input('Введите дополнительную информацию:\n')
 
             elif option2 == 2:
@@ -114,6 +119,8 @@ while True:
                 print('Возраст:', '\t', input_age, years_name)
                 print('Телефон:', '\t', input_phone)
                 print('E-mail:', '\t', input_e_mail)
+                print('Индекс:', '\t', clear_postcode)
+                print('Адрес:', '\t', input_address)
                 if input_info:
                     print('')
                     print('Дополнительная информация:')
@@ -134,6 +141,8 @@ while True:
                 print('Возраст:', '\t', input_age, years)
                 print('Телефон:', '\t', input_phone)
                 print('E-mail:', '\t', input_e_mail)
+                print('Индекс:', '\t', clear_postcode)
+                print('Адрес:', '\t', input_address)
                 if input_info:
                     print('')
                     print('Дополнительная информация:')
