@@ -76,7 +76,7 @@ while True:
                 input_inn = int(input('Введите ИНН: '))
                 while True:
                     input_payment_account = input('Введите расчётный счёт: ')
-                    if len(input_orgnip) == 20:
+                    if len(input_payment_account) == 20:
                         break
                     else:
                         print('Ошибка! проверьте, что поле "расчётный счёт" содержит 20 цифр')
@@ -101,7 +101,7 @@ while True:
             if option2 == 1:
                 # print general information
                 print(SEPARATOR)
-                print('Имя:    ', input_name)
+                print('Имя:', '\t', '\t', input_name)
                 if 11 <= input_age % 100 <= 19:
                     years_name = 'лет'
                 elif input_age % 10 == 1:
@@ -111,9 +111,9 @@ while True:
                 else:
                     years_name = 'лет'
 
-                print('Возраст:', input_age, years_name)
-                print('Телефон:', input_phone)
-                print('E-mail: ', input_e_mail)
+                print('Возраст:', '\t', input_age, years_name)
+                print('Телефон:', '\t', input_phone)
+                print('E-mail:', '\t', input_e_mail)
                 if input_info:
                     print('')
                     print('Дополнительная информация:')
@@ -122,7 +122,7 @@ while True:
             elif option2 == 2:
                 # print full information
                 print(SEPARATOR)
-                print('Имя:    ', input_name)
+                print('Имя:', '\t', input_name)
                 if 11 <= input_age % 100 <= 19:
                     years = 'лет'
                 elif input_age % 10 == 1:
@@ -131,16 +131,22 @@ while True:
                     years = 'года'
                 else:
                     years = 'лет'
-                print('Возраст:', input_age, years)
-                print('Телефон:', input_phone)
-                print('E-mail: ', input_e_mail)
+                print('Возраст:', '\t', input_age, years)
+                print('Телефон:', '\t', input_phone)
+                print('E-mail:', '\t', input_e_mail)
                 if input_info:
                     print('')
                     print('Дополнительная информация:')
                     print(input_info)
 
-                # print business info
-                # !!!!!
+                print('\nИнформация о предпринимателе')
+                print('ОРНИП:', '\t', input_orgnip)
+                print('ИНН:', '\t', input_inn)
+                print('Банковские реквизиты')
+                print('Р/с:', '\t', input_payment_account)
+                print('Банк:', '\t', input_bank_name)
+                print('БИК:', '\t', input_bik)
+                print('К/с:', '\t', input_correspondent_account)
             else:
                 print('Введите корректный пункт меню')
     else:
