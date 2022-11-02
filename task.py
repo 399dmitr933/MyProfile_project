@@ -11,6 +11,10 @@ input_info = ''
 # user profile business
 input_orgnip = 0
 input_inn = 0
+input_payment_account = 0
+input_bank_name = ''
+input_bik = 0
+input_correspondent_account = 0
 
 print('Приложение MyProfile')
 print('Сохраняй информацию о себе и выводи ее в разных форматах')
@@ -55,17 +59,30 @@ while True:
                         input_phone += i_char
 
                 input_e_mail = input('Введите адрес электронной почты: ')
+
+
+
+
                 input_info = input('Введите дополнительную информацию:\n')
 
             elif option2 == 2:
                 # input business info
                 while True:
-                    input_orgnip = input('Введите ОРНИП:')
+                    input_orgnip = input('Введите ОРНИП: ')
                     if len(input_orgnip) == 15:
                         break
                     else:
-                        print('Ошибка! проверьте, что поле ОГРНИП содержит 15 цифр')
-                input_inn = int(input('Введите ИНН:'))
+                        print('Ошибка! проверьте, что поле "ОГРНИП" содержит 15 цифр')
+                input_inn = int(input('Введите ИНН: '))
+                while True:
+                    input_payment_account = input('Введите расчётный счёт: ')
+                    if len(input_orgnip) == 20:
+                        break
+                    else:
+                        print('Ошибка! проверьте, что поле "расчётный счёт" содержит 20 цифр')
+                input_bank_name = input('Введите название банка: ')
+                input_bik = int(input('Введите БИК: '))
+                input_correspondent_account = int(input('Введите корреспондентский счёт: '))
                 break
             else:
                 print('Введите корректный пункт меню')
