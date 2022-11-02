@@ -120,7 +120,7 @@ while True:
                 print('Телефон:', '\t', input_phone)
                 print('E-mail:', '\t', input_e_mail)
                 print('Индекс:', '\t', clear_postcode)
-                print('Адрес:', '\t', input_address)
+                print('Адрес:', '\t', '\t', input_address)
                 if input_info:
                     print('')
                     print('Дополнительная информация:')
@@ -129,7 +129,7 @@ while True:
             elif option2 == 2:
                 # print full information
                 print(SEPARATOR)
-                print('Имя:', '\t', input_name)
+                print('Имя:', '\t', '\t', input_name)
                 if 11 <= input_age % 100 <= 19:
                     years = 'лет'
                 elif input_age % 10 == 1:
@@ -142,7 +142,7 @@ while True:
                 print('Телефон:', '\t', input_phone)
                 print('E-mail:', '\t', input_e_mail)
                 print('Индекс:', '\t', clear_postcode)
-                print('Адрес:', '\t', input_address)
+                print('Адрес:', '\t', '\t', input_address)
                 if input_info:
                     print('')
                     print('Дополнительная информация:')
