@@ -2,16 +2,23 @@
 
 SEPARATOR = '------------------------------------------'
 
-# user profile
-n = ''
-a = 0
-ph = ''
-e = ''
-i = ''
-# social links
-v = ''
-t = ''
-tk = ''
+# user profile base
+input_name = ''
+input_age = 0
+input_phone = ''
+input_e_mail = ''
+input_info = ''
+# user profile business
+input_orgnip = 0
+input_inn = 0
+input_payment_account = 0
+input_bank_name = ''
+input_bik = 0
+input_correspondent_account = 0
+input_address = ''
+input_postcode = ''
+clear_postcode = ''
+test_num_postcode = '1234567890'
 
 print('Приложение MyProfile')
 print('Сохраняй информацию о себе и выводи ее в разных форматах')
@@ -26,15 +33,15 @@ while True:
 
     option = int(input('Введите номер пункта меню: '))
     if option == 0:
-            break
+        break
 
     if option == 1:
         # submenu 1: edit info
         while True:
             print(SEPARATOR)
             print('ВВЕСТИ ИЛИ ОБНОВИТЬ ИНФОРМАЦИЮ')
-            print('1 - Общая информация')
-            print('2 - Социальные сети и мессенджеры')
+            print('1 - Личная информация')
+            print('2 - Информация о предпринимателе')
             print('0 - Назад')
 
             option2 = int(input('Введите номер пункта меню: '))
@@ -42,36 +49,54 @@ while True:
                 break
             if option2 == 1:
                 # input general info
-                n = input('Введите имя: ')
+                input_name = input('Введите имя: ')
                 while 1:
-                        # validate user age
-                        a = int(input('Введите возраст: '))
-                        if a > 0:
-                            break
-                        print('Возраст должен быть положительным')
+                    # validate user age
+                    input_age = int(input('Введите возраст: '))
+                    if input_age > 0:
+                        break
+                    print('Возраст должен быть положительным')
 
-                uph = input('Введите номер телефона (+7ХХХХХХХХХХ): ')
-                ph = ''
-                for ch in uph:
-                    if ch == '+' or ('0' <= ch <= '9'):
-                        ph += ch
+                check_phone = input('Введите номер телефона (+7ХХХХХХХХХХ): ')
+                for i_char in check_phone:
+                    if i_char == '+' or ('0' <= i_char <= '9'):
+                        input_phone += i_char
 
-
-                e = input('Введите адрес электронной почты: ')
-                i = input('Введите дополнительную информацию:\n')
+                input_e_mail = input('Введите адрес электронной почты: ')
+                input_postcode = input('Введите почтовый индекс: ')
+                input_address = input('Введите почтовый адрес (без индекса): ')
+                for i_char in input_postcode:
+                    if i_char in test_num_postcode:
+                        clear_postcode += i_char
+                input_info = input('Введите дополнительную информацию:\n')
 
             elif option2 == 2:
-                # input social links
-                v = input('Введите адрес профиля Вконтакте: ')
-                t = input('Введите логин Telegram: ')
-                tk = input('Введите логин Tiktok: ')
-            else: print('Введите корректный пункт меню')
+                # input business info
+                while True:
+                    input_orgnip = input('Введите ОРНИП: ')
+                    if len(input_orgnip) == 15:
+                        break
+                    else:
+                        print('Ошибка! проверьте, что поле "ОГРНИП" содержит 15 цифр')
+                input_inn = int(input('Введите ИНН: '))
+                while True:
+                    input_payment_account = input('Введите расчётный счёт: ')
+                    if len(input_payment_account) == 20:
+                        break
+                    else:
+                        print('Ошибка! проверьте, что поле "расчётный счёт" содержит 20 цифр')
+                input_bank_name = input('Введите название банка: ')
+                input_bik = int(input('Введите БИК: '))
+                input_correspondent_account = int(input('Введите корреспондентский счёт: '))
+                break
+            else:
+                print('Введите корректный пункт меню')
     elif option == 2:
         # submenu 2: print info
         while True:
             print(SEPARATOR)
             print('ВЫВЕСТИ ИНФОРМАЦИЮ')
-            print('1 - Общая информация')
+            print('1 - Личная информация')
             print('2 - Вся информация')
             print('0 - Назад')
 
@@ -81,42 +106,57 @@ while True:
             if option2 == 1:
                 # print general information
                 print(SEPARATOR)
-                print('Имя:    ', n)
-                if 11 <= a % 100 <= 19: years_name = 'лет'
-                elif a % 10 == 1: years_name = 'год'
-                elif 2 <= a % 10 <= 4: years_name = 'года'
-                else: years_name = 'лет'
+                print('Имя:', '\t', '\t', input_name)
+                if 11 <= input_age % 100 <= 19:
+                    years_name = 'лет'
+                elif input_age % 10 == 1:
+                    years_name = 'год'
+                elif 2 <= input_age % 10 <= 4:
+                    years_name = 'года'
+                else:
+                    years_name = 'лет'
 
-
-                print('Возраст:', a, years_name)
-                print('Телефон:', ph)
-                print('E-mail: ', e)
-                if i:
-                        print('')
-                        print('Дополнительная информация:')
-                        print(i)
+                print('Возраст:', '\t', input_age, years_name)
+                print('Телефон:', '\t', input_phone)
+                print('E-mail:', '\t', input_e_mail)
+                print('Индекс:', '\t', clear_postcode)
+                print('Адрес:', '\t', '\t', input_address)
+                if input_info:
+                    print('')
+                    print('Дополнительная информация:')
+                    print(input_info)
 
             elif option2 == 2:
                 # print full information
                 print(SEPARATOR)
-                print('Имя:    ', n)
-                if 11 <= a % 100 <= 19:    years = 'лет'
-                elif a % 10 == 1:    years = 'год'
-                elif 2 <= a % 10 <= 4:      years = 'года'
-                else:  years = 'лет'
-                print('Возраст:', a, years)
-                print('Телефон:', ph)
-                print('E-mail: ', e)
-                if i:
-                            print('')
-                            print('Дополнительная информация:')
-                            print(i)
+                print('Имя:', '\t', '\t', input_name)
+                if 11 <= input_age % 100 <= 19:
+                    years = 'лет'
+                elif input_age % 10 == 1:
+                    years = 'год'
+                elif 2 <= input_age % 10 <= 4:
+                    years = 'года'
+                else:
+                    years = 'лет'
+                print('Возраст:', '\t', input_age, years)
+                print('Телефон:', '\t', input_phone)
+                print('E-mail:', '\t', input_e_mail)
+                print('Индекс:', '\t', clear_postcode)
+                print('Адрес:', '\t', '\t', input_address)
+                if input_info:
+                    print('')
+                    print('Дополнительная информация:')
+                    print(input_info)
 
-                # print social links
-                print('')
-                print('Социальные сети и мессенджеры')
-                print('Вконтакте:', v)
-                print('Telegram: ', t)
-                print('Tiktok:   ', tk)
-            else:   print('Введите корректный пункт меню')
-    else:       print('Введите корректный пункт меню')
+                print('\nИнформация о предпринимателе')
+                print('ОРНИП:', '\t', input_orgnip)
+                print('ИНН:', '\t', input_inn)
+                print('Банковские реквизиты')
+                print('Р/с:', '\t', input_payment_account)
+                print('Банк:', '\t', input_bank_name)
+                print('БИК:', '\t', input_bik)
+                print('К/с:', '\t', input_correspondent_account)
+            else:
+                print('Введите корректный пункт меню')
+    else:
+        print('Введите корректный пункт меню')
